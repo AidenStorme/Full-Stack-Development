@@ -1,0 +1,38 @@
+﻿@model MvcMusicStore.ViewModels.StoreIndexVM
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device‐width" />
+    <title>Index</title>
+</head>
+<body>
+    <h2>Browse Genres</h2>
+    <p>Select from @Model.NumberOfGenres genres</p>
+
+    <!-- Loop over Genres list -->
+    <ul>
+        @if (Model.Genres != null)
+        {
+            foreach (var genreName in Model.Genres)
+            {
+                <li>
+                    <a href="/Store/Browse?genre=@genreName">@genreName</a> <!-- Adds a link for every genre to the respected album -->
+                    @if (ViewBag.Starred.Contains(genreName))
+                    {
+                        <img src="~/images/starred.png" alt="stars" />
+                    }
+                </li>
+            }
+        }
+    </ul>
+    <h5>
+        <img src="~/images/starred.png" alt="Starred element" />Starred genres 20%
+        Off!
+    </h5>
+</body>
+</html>

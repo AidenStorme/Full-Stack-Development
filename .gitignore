@@ -1,0 +1,52 @@
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+.history/
+
+# .NET build artifacts
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Rr]elease/
+[Dd]ebug/
+[Tt]est[Rr]esult*/
+artifacts/
+
+# Visual Studio / Rider
+.vs/
+.idea/
+*.suo
+*.user
+*.rsuser
+*.userosscache
+*.sln.docstates
+_ReSharper*/
+*.iml
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# ASP.NET Core
+wwwroot/lib/
+appsettings.*.local.json
+appsettings.Local.json
+
+# Logs & Coverage
+*.log
+logs/
+coverage/
+*.coverage
+*.coveragexml
+
+# Misc
+*.pidb
+*.svclog
+*.dbmdl
+*.ncrunch*
+*.nunit.xml
+*.VisualState.xml

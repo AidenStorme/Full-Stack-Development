@@ -1,0 +1,100 @@
+﻿@model Travel9.ViewModels.TravelDatePickerVM
+
+@{
+    ViewData["Title"] = "IndexWithDatePicker";
+}
+
+<h1>IndexWithDatePicker</h1>
+
+<h4>TravelDatePickerVM</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="IndexWithDatePicker">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DepartureCode" class="control-label"></label>
+                @* <input asp-for="DepartureCode" class="form-control" /> *@
+                <select asp-for="DepartureCode" class="form-control" asp-items="Model.CountryList">
+                    <option disabled selected value="">Select a Country</option>
+                </select>
+                <span asp-validation-for="DepartureCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArrivalCode" class="control-label"></label>
+                <select asp-for="ArrivalCode" class="form-control" asp-items="Model.CountryList">
+                    <option disabled selected value="">Select a Country</option>
+                </select>
+                <span asp-validation-for="ArrivalCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDate" class="control-label"></label>
+                <input asp-for="StartDate" class="form-control" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDate" class="control-label"></label>
+                <input asp-for="EndDate" class="form-control" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+            <span>I travel so many days.</span>
+            <input type="text" id="DateResult" />
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        $(() => {
+            let mindate = new Date();
+            let result = new Date();
+
+            $('#EndDate').flatpickr({}) // Makes the text field ready for the date
+
+            $('#StartDate').flatpickr({
+                locale: "nl",
+                dateFormat: "Y-m-d",
+                showMonths: 3,
+
+                disable: [
+                    function(date) {
+                    // Return true to disable
+                    return (date.getDay() === 0 || date.getDay() === 6);
+                    }
+                ],
+
+                onChange: (minDateStr) => {
+                     $('#EndDate').flatpickr({
+                        minDate : minDateStr[0],
+                        locale: "nl",
+                        dateFormat: "Y-m-d",
+                        showMonths: 3,
+
+                        disable: [
+                            function(date) {
+                            // Return true to disable
+                            return (date.getDay() === 0 || date.getDay() === 6);
+                            }
+                        ],
+
+                        onChange: (maxDateStr) => {
+                            result = (maxDateStr[0] - minDateStr[0]) / (1000 * 60 * 60 * 24);
+                            $('#DateResult').val(result);
+                        }
+                     })
+                }
+            })
+        })
+    </script>
+}
