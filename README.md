@@ -17,7 +17,7 @@ A consolidated repository of multiple .NET MVC sample projects used for coursewo
 > Note: Some folders in this README are summarized. Explore each directory for controllers, models, views, and static assets.
 
 ## Prerequisites
-- .NET SDK 8.0+ installed (`dotnet --version` to verify)
+- .NET SDK 9.0 installed (`dotnet --version` to verify)
 - macOS with zsh shell (commands below use zsh)
 
 ## Quick Start (per project)

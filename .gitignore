@@ -50,3 +50,32 @@ coverage/
 *.ncrunch*
 *.nunit.xml
 *.VisualState.xml
+
+# Additional editor / OS artifacts
+Thumbs.db
+*.swp
+*.swo
+
+# Environment & dependencies
+.env*
+node_modules/
+
+# Generated code / snapshots
+Generated/**
+**/Properties/launchSettings.json
+
+# Deployment / publish outputs
+**/publish/
+**/dist/
+
+# Azure service dependency manifests
+ServiceDependencies.json
+ServiceDependencies.*.json
+
+# Docker image archives
+*.tar
+
+# Backups / pdb
+*.bak
+*.pdb
+
