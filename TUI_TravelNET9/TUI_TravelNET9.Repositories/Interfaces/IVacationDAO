@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using TuiVacation.Domain.Entities;
+
+namespace TuiVacation.Repository.Interfaces
+{
+    /// <summary>
+    /// Data-access contract for retrieving Vacation entities.
+    /// Implementations encapsulate storage details (DB, API, in-memory, etc.).
+    /// </summary>
+    public interface IVacationDAO
+    {
+        /// <summary>
+        /// Asynchronously retrieves all vacations filtered by the provided country type.
+        /// </summary>
+        /// <param name="type">
+        /// A CountryType value that the implementation uses to filter results
+        /// (e.g. Domestic, International). CountryType is an enum declared elsewhere.
+        /// </param>
+        /// <returns>
+        /// A Task that completes with an IEnumerable&lt;Vacation&gt; containing matching
+        /// Vacation entities. The Task represents asynchronous operation; the sequence
+        /// may be empty but should not be null (prefer returning an empty sequence).
+        /// </returns>
+        Task<IEnumerable<Vacation>> GetAllVacationsAsync(CountryType type);
+    }
+}

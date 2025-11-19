@@ -1,0 +1,26 @@
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using TuiVacation.Domain.Data;
+using TuiVacation.Domain.Entities;
+using TuiVacation.Repository.Interfaces;
+
+namespace TuiVacation.Repository
+{
+    public class VacationDAO : IVacationDAO
+    {
+        private readonly TuiVacationDbContext _context;
+
+        public VacationDAO(TuiVacationDbContext context)
+        {
+            _context = context;
+        }
+        public async Task<IEnumerable<Vacation>> GetAllVacationsAsync(CountryType type)
+        {
+            return await _context.Vacations.Where(v => v.Country == type).ToListAsync();
+        }
+    }
+}

@@ -1,7 +1,5 @@
 namespace TUI_TravelNET9.Domain.Entities;
 
-public class Hotel
-{
     public enum CountryType
     {
         Coast,
@@ -18,4 +16,3 @@ public class Hotel
         public string? Photo { get; set; }
         public CountryType Country { get; set; }
     }
-}
