@@ -1,0 +1,56 @@
+﻿@model RichPanel9.ViewModels.ProductVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<h4>ProductVM</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <!-- Script to wire up your TinyMCE editor -->
+    <script src="https://cdn.tiny.cloud/1/i4ugwxf96wdd5w60wcuf4i8ay6t332zw5izwp6aj3f3p8h8w/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+                tinyMCE.init({
+            // General options
+            selector: "#Description",
+            plugins: 'advlist autolink link image lists charmap print preview textcolor',
+             toolbar: [
+                        'undo redo | bullist numlist | bold italic | link image | forecolor backcolor',       // aanmaken van Toolbars (er worden hier twee toolsbars aangemaken
+                        'alignleft aligncenter alignright'
+                    ]
+        });
+    </script>
+
+
+    @*// extra info https://www.tinymce.com/docs/*@
+}
