@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TuiVacation.Domain.Entities;
+using TUI_TravelNET9.Domain.Entities;
 
-namespace TuiVacation.Domain.Data
+namespace TUI_TravelNET9.Domain.Data
 {
     public class TuiVacationDbContext : DbContext
     {

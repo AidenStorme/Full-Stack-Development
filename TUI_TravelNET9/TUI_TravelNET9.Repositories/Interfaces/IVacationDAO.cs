@@ -28,3 +28,4 @@ namespace TUI_TravelNET9.Repositories.Interfaces
         Task<IEnumerable<Vacation>> GetAllVacationsAsync(CountryType type);
     }
 }
+

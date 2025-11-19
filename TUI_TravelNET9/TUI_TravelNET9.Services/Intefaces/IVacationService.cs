@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TuiVacation.Domain.Entities;
+using TUI_TravelNET9.Domain.Entities;
 
-namespace TuiVacation.Services.Interfaces
+namespace TUI_TravelNET9.Services.Intefaces
 {
     public interface IVacationService
     {

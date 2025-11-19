@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TuiVacation.Domain.Entities;
-using TuiVacation.Repository.Interfaces;
-using TuiVacation.Services.Interfaces;
+using TUI_TravelNET9.Domain.Entities;
+using TUI_TravelNET9.Repositories.Interfaces;
+using TUI_TravelNET9.Services.Intefaces;
 
-namespace TuiVacation.Services
+namespace TUI_TravelNET9.Services
 {
     public class VacationService : IVacationService
     {
