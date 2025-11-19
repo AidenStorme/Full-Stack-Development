@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="TUI_TravelNET9.Domain\TUI_TravelNET9.Domain.csproj" Type="Classic C#" />
+  <Project Path="TUI_TravelNET9.Repositories\TUI_TravelNET9.Repositories.csproj" Type="Classic C#" />
+  <Project Path="TUI_TravelNET9.Services\TUI_TravelNET9.Services.csproj" Type="Classic C#" />
+  <Project Path="TUI_TravelNET9/TUI_TravelNET9.csproj" />
+</Solution>

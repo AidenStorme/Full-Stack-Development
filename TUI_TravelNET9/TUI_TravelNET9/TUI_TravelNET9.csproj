@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TUI_TravelNET9.Domain\TUI_TravelNET9.Domain.csproj" />
+    <ProjectReference Include="..\TUI_TravelNET9.Services\TUI_TravelNET9.Services.csproj" />
+  </ItemGroup>
+
+</Project>
