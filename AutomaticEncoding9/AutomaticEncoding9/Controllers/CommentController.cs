@@ -1,16 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using AutomaticEncoding9.ViewModels;
+﻿using AutomaticEncoding9.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AutomaticEncoding9.Controllers
 {
     public class CommentController : Controller
     {
-        private static readonly List<CommentVM> _comments = new(); // nieuwe lege comment list maken
+        private static readonly List<CommentVM> _comments = new();
+
         public IActionResult Index()
         {
             var vm = new CommentPageVM
             {
-                Comments = _comments // Alle comments doorgeven aan de view
+                Comments = _comments
             };
             return View(vm);
         }
@@ -18,15 +19,15 @@ namespace AutomaticEncoding9.Controllers
         [HttpPost]
         public IActionResult Index(CommentPageVM commentPageVM)
         {
-            if(ModelState.IsValid && commentPageVM.NewComment != null)
+            if (ModelState.IsValid && commentPageVM.NewComment != null)
             {
-                _comments.Add(commentPageVM.NewComment); // Nieuwe comment toevoegen aan de lijst
+                _comments.Add(commentPageVM.NewComment);
             }
             var vm = new CommentPageVM
             {
-                Comments = _comments // Alle comments doorgeven aan de view
+                Comments = _comments
             };
-            ModelState.Clear(); // Textboxes leeg maken na invoer
+            ModelState.Clear(); //zorgt ervoor dat de tekstvakken leeg zijn na het posten
             return View(vm);
         }
     }

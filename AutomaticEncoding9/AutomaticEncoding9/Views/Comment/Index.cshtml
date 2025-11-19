@@ -1,5 +1,5 @@
-﻿@* @model AutomaticEncoding9.ViewModels.CommentVM *@
-@model AutomaticEncoding9.ViewModels.CommentPageVM // Je moet deze pagina maken op basis van CommentVM maar dan uiteindelijk CommentPageVM gebruiken
+﻿@*model AutomaticEncoding9.ViewModels.CommentVM*@
+@model AutomaticEncoding9.ViewModels.CommentPageVM
 
 @{
     ViewData["Title"] = "Index";
@@ -11,11 +11,10 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-controller="Comment" asp-action="Index" method="post">
-            @Html.AntiForgeryToken()
+        <form asp-action="Index">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="NewComment.Name" class="control-label"></label> <!-- Hier moet je de labels veranderen naar NewComment.Name omdat je CommentPageVM gebruikt niet CommentVM -->
+                <label asp-for="NewComment.Name" class="control-label"></label>
                 <input asp-for="NewComment.Name" class="form-control" />
                 <span asp-validation-for="NewComment.Name" class="text-danger"></span>
             </div>
@@ -35,19 +34,22 @@
 @if (!Model.Comments.Any())
 {
     <p>No comments have been posted yet.</p>
-}
-else
+} else
 {
     <ul>
         @foreach (var comment in Model.Comments)
         {
             <li><strong>@comment.Name</strong>: @comment.Message</li>
-            @* If you intentionally want to render HTML inside comment.Message (NOT recommended unless trusted),
-               use: @Html.Raw(comment.Message)
-               Note: Html.Raw disables automatic encoding and may introduce XSS if message content is untrusted. *@
+            <li>@comment.Message</li>
         }
+        @*Automatic Encoding: zorgt ervoor als je letterlijk html ingeeft dat de browser snapt dat dit geen uitvoerbare code is *@
+        @*<li> @Html.Raw(comment.Message) --> encoding uitschakelen: als er nu html geschreven wordt, zal de browser dit dus wel uitschakelen*@
     </ul>
+    
+   
 }
+
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
