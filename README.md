@@ -13,6 +13,8 @@ A consolidated repository of multiple .NET MVC sample projects used for coursewo
 - Register9 — `Register9/Register9.sln`
 - Stars — `Stars/Stars.sln`
 - Travel9 — `Travel9/Travel9.sln`
+- RichPanel9 — `RichPanel9/RichPanel9.sln`
+- RichPanel9 — `RichPanel9/RichPanel9.sln`
 
 > Note: Some folders in this README are summarized. Explore each directory for controllers, models, views, and static assets.
 
