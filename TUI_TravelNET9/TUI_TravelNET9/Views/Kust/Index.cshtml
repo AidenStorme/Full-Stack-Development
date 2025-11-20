@@ -1,8 +1,41 @@
-@model TModel
+@model IEnumerable<TUI_TravelNET9.ViewModels.VacationVM>
 
 @{
-    ViewBag.Title = "title";
-    Layout = "_Layout";
+    ViewData["Title"] = "Index";
 }
 
-<h2>title</h2>
+@if (Model == null || !Model.Any())
+{
+    <p>Geen hotels gevonden.</p>
+}
+else
+{
+    <div class="row">
+        @foreach (var hotel in Model)
+        {
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    @if (!string.IsNullOrEmpty(hotel.Photo))
+                    {
+                        <img src="@hotel.Photo" class="card-img-top" alt="@hotel.NameHotel" />
+                    }
+                    <div class="card-body">
+                        <h5 class="card-title">@hotel.NameHotel</h5>
+                        <p class="card-text" aria-label="Rating">
+                            @{ 
+                                var starCount = hotel?.Stars ?? 0;
+                                for (int i = 0; i < starCount; i++)
+                                {
+                                    <img src="/images/star.jpg" alt="star" style="width:16px;height:16px;margin-right:4px;" />
+                                }
+                            }
+                        </p>
+                        <p class="card-text">Score: @(hotel.Score.HasValue ? hotel.Score.Value.ToString("0.0") : "-")</p>
+                        <p class="card-text">Facilities: @hotel.Facilities</p>
+                        <p class="card-text">Country: @hotel.Country</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

@@ -48,7 +48,10 @@ using (var scope = app.Services.CreateScope())
     if (!db.Hotels.Any())
     {
         db.Hotels.AddRange(
-            new Hotel { Id = 1, NameHotel = "Hotel Example", City = "Bruges", Stars = 4, Score = 8.5, Benefit = "Free breakfast", Photo = "hotel1.jpg", Country = CountryType.Coast }
+            new Hotel { Id = 1, NameHotel = "Hotel Europe", Stars = 4, Score = 7.8, Facilities = "Familiehotel bij uitstek", Photo = "/images/HotelEurope.jpg", Country = CountryType.Coast },
+            new Hotel { Id = 2, NameHotel = "Domein Westhoek", Stars = 3, Score = 7.3, Facilities = "Zwembad & wellness", Photo = "/images/DomeinWesthoek_Oostduinkerke.jpg", Country = CountryType.Coast },
+            new Hotel { Id = 3, NameHotel = "ibis DeHaan", Stars = 4, Score = 8.1, Facilities = "Strand op 350 m", Photo = "/images/ibisDeHaan_DeHaan.jpg", Country = CountryType.Coast },
+            new Hotel { Id = 4, NameHotel = "C-Hotels Excelsior", Stars = 4, Score = 8.5, Facilities = "Zwembad & wellness", Photo = "/images/C-HotelsExcelsior_Middelkerke.jpg", Country = CountryType.Coast }
         );
 
         db.SaveChanges();

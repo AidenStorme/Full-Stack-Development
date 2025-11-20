@@ -20,7 +20,8 @@ namespace TUI_TravelNET9.Services
 
         public Task<IEnumerable<Hotel>> GetAllHotelsAsync(CountryType type)
         {
-            throw new NotImplementedException();
+            // Delegate to the DAO implementation which queries the DbContext.
+            return _hotelDao.GetAllVacationsAsync(type);
         }
     }
 }

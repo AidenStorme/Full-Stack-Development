@@ -31,7 +31,7 @@ builder.Services.AddScoped<IPersonDBDAO, PersonDBDAO>();
 builder.Services.AddAutoMapper(typeof(Program));
 
 
-var app = builder.Build();
+var app = builder.Build(); // Eigenlijk een ICollection van allemaal services
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
