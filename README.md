@@ -103,51 +103,71 @@ dotnet --list-runtimes
 ```zsh
 # Tap contains specific 9.x SDK casks used here
 brew tap isen-ng/dotnet-sdk-versions
-brew install --cask dotnet-sdk9-0-100
+# Full Stack Development
 
-# Or download installers from dotnet: https://dotnet.microsoft.com/download/dotnet/9.0
-```
+Consolidated workspace of multiple ASP.NET Core (MVC) sample projects used for coursework and practice. Each project is self-contained and has its own solution (`.sln`) and project (`.csproj`).
 
-- Run a single project (example: AutomaticEncoding9):
+## Projects (at root)
+- `AutomaticEncoding9/` — `AutomaticEncoding9/AutomaticEncoding9.slnx`
+- `Bundling9/` — `Bundling9/Bundling9.sln`
+- `Calculator9/` — `Calculator9/Calculator.sln`
+- `Intro9/` — `Intro9/Intro.sln`
+- `MvcMovies9/` — `MvcMovies9/MvcMovies9.sln`
+- `MvcMusicStore/` — `MvcMusicStore/MvcMusicStore9.sln`
+- `PartialView9/` — `PartialView9/PartialView9.sln` (multi-project)
+- `Register9/` — `Register9/Register9.sln`
+- `Stars9/` — `Stars/Stars.sln`
+- `Travel9/` — `Travel9/Travel9.sln`
+- `RichPanel9/` — `RichPanel9/RichPanel9.sln`
+
+Explore each folder for controllers, models, views, static assets, and solution files.
+
+## Prerequisites
+- .NET SDK 9.0 (projects target `net9.0`) — verify with:
 
 ```zsh
-cd "AutomaticEncoding9/AutomaticEncoding9"
-dotnet restore
-dotnet watch run    # hot reload enabled
+dotnet --version
+dotnet --list-runtimes
 ```
 
-**AutomaticEncoding9 — quick notes**
+- Recommended: Install the matching ASP.NET Core runtime if not present.
 
-- Open: `http://localhost:<port>` (port printed in the terminal). The comments page is available at `/Comment`.
-- The comment feature stores messages in a static in-memory list (not persisted to disk). Comments are lost when the app stops.
-- The app uses Post-Redirect-Get (PRG) to avoid duplicate submissions on refresh.
+## Quick Start (run a single project)
+1. Change into the project folder that contains the `.sln` or `.csproj` you want to run.
 
-## Common Tasks
+```zsh
+# Example: run MvcMovies9
+cd "MvcMovies9/MvcMovies9"
+dotnet restore
+dotnet run
+```
+
+2. The app will print a local URL (for example `http://localhost:5xxx`). Open that URL in your browser.
+
+Tip: For development, you can also use `dotnet watch run` in many projects to get hot reload while editing.
+
+## Common Commands
+- Restore: `dotnet restore`
 - Build: `dotnet build`
 - Run: `dotnet run`
-- Test (if present): `dotnet test`
+- Watch (hot reload): `dotnet watch run`
+- Test (if a test project exists): `dotnet test`
 
 ## Repository Layout
-Top-level folders correspond to separate .NET projects/solutions. Typical structure:
-- `Controllers/`, `Models/`, `Views/`, `wwwroot/`: MVC components
-- `appsettings.json`, `appsettings.Development.json`: configuration
-- `Program.cs`: application entry point
+- Top-level folders each contain one or more related projects/solutions.
+- Typical ASP.NET Core MVC project contains: `Controllers/`, `Models/`, `Views/`, `wwwroot/`, `Program.cs`, `appsettings.json`.
 
 ## Troubleshooting
+- If a project fails with a runtime error, check `dotnet --list-runtimes` and install the missing runtime for .NET 9.
+- If pages appear to re-submit forms on refresh, check for Post-Redirect-Get (PRG) patterns in the controllers (some sample apps implement PRG).
 
-- Error: "You must install or update .NET to run this application" — verify you have both `Microsoft.NETCore.App` and `Microsoft.AspNetCore.App` for **9.x**.
-- If the site builds but won't run, check `dotnet --list-runtimes` and install the missing ASP.NET Core runtime for 9.x.
-- If forms seem to re-submit on refresh, PRG is implemented in the `CommentController` (redirects after POST). Confirm you are submitting the form with the button (not using browser auto-fill submit shortcuts).
+## Contributing
+- Keep new exercises/projects in their own folder with a `.sln` and `.csproj`.
+- Update this README when adding or removing projects.
 
-## Contributing / Notes
-- This repository uses a root-level `.gitignore` tailored for .NET, macOS, and editor artifacts.
-- If you add new projects, keep them in their own folder with a `.sln` and `.csproj` for clarity. Update this README table when you add projects.
-
-## Publishing to GitHub
-This repository was initialized locally. If you need to push to a new GitHub repo named `Full-Stack-Development`:
-
-1. Create an empty repository on GitHub (GitHub repo names cannot contain spaces). Suggested name: `Full-Stack-Development`.
-2. Add the remote and push:
+## Publishing to GitHub (example)
+1. Create a new repository on GitHub (suggested name: `Full-Stack-Development`).
+2. From the repo root, add remote and push:
 
 ```zsh
 cd "/Users/aidenstorme/Library/CloudStorage/OneDrive-HogeschoolVIVES/School/Full Stack/Oefeningen"
@@ -156,10 +176,17 @@ git branch -M main
 git push -u origin main
 ```
 
-If you prefer SSH:
+Or with SSH:
+
 ```zsh
 git remote add origin git@github.com:<YOUR_USERNAME>/Full-Stack-Development.git
 git branch -M main
 git push -u origin main
 ```
-````
+
+---
+
+If you'd like, I can:
+- Add per-project README fragments (run notes or important routes),
+- Add a `scripts/` helper for common CLI tasks, or
+- Run a specific project and confirm it starts locally.

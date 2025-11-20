@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\TUI_TravelNET9.Domain\TUI_TravelNET9.Domain.csproj" />
+      <ProjectReference Include="..\TUI_TravelNET9.Repositories\TUI_TravelNET9.Repositories.csproj" />
+    </ItemGroup>
+
+</Project>
