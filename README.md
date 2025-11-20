@@ -49,10 +49,7 @@ Top-level folders correspond to separate .NET projects/solutions. Typical struct
 - This repository uses a root-level `.gitignore` tailored for .NET, macOS, and editor artifacts.
 - If you add new projects, keep them in their own folder with a `.sln` and `.csproj` for clarity.
 
-## Publishing to GitHub
-This repository was initialized locally. If you need to push to a new GitHub repo named `Full-Stack-Development`:
-
-1. Create an empty repository on GitHub (GitHub repo names cannot contain spaces). Suggested name: `Full-Stack-Development`.
+ 
 ````markdown
 # Full Stack Development
 
@@ -123,7 +120,7 @@ Consolidated workspace of multiple ASP.NET Core (MVC) sample projects used for c
 Explore each folder for controllers, models, views, static assets, and solution files.
 
 ## Prerequisites
-- .NET SDK 9.0 (projects target `net9.0`) — verify with:
+- .NET SDK 9.0 (projects target `net9.0`) — verify with
 
 ```zsh
 dotnet --version
@@ -165,26 +162,8 @@ Tip: For development, you can also use `dotnet watch run` in many projects to ge
 - Keep new exercises/projects in their own folder with a `.sln` and `.csproj`.
 - Update this README when adding or removing projects.
 
-## Publishing to GitHub (example)
-1. Create a new repository on GitHub (suggested name: `Full-Stack-Development`).
-2. From the repo root, add remote and push:
-
-```zsh
-cd "/Users/aidenstorme/Library/CloudStorage/OneDrive-HogeschoolVIVES/School/Full Stack/Oefeningen"
-git remote add origin https://github.com/<YOUR_USERNAME>/Full-Stack-Development.git
-git branch -M main
-git push -u origin main
-```
-
-Or with SSH:
-
-```zsh
-git remote add origin git@github.com:<YOUR_USERNAME>/Full-Stack-Development.git
-git branch -M main
-git push -u origin main
-```
-
----
+ 
+ 
 
 If you'd like, I can:
 - Add per-project README fragments (run notes or important routes),
