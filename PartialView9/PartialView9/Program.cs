@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using PartialView.Domain.Data;
+using PartialView.Domain.DataDB;
 using PartialView.Domain.Entities;
 using PartialView.Repositories;
 using PartialView.Repositories.Interfaces;
@@ -15,8 +16,19 @@ builder.Services.AddDbContext<PersonDbContext>(options =>
     options.UseInMemoryDatabase("InMemoryDb")
     );
 
+//SQL Server
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+builder.Services.AddDbContext<StudentDbContext>(options =>
+    options.UseSqlServer(connectionString));
+
 builder.Services.AddScoped<IPersonService, PersonService>();
 builder.Services.AddScoped<IPersonDAO, PersonDAO>();
+
+builder.Services.AddScoped<IPersonDBService, PersonDBService>();
+builder.Services.AddScoped<IPersonDBDAO, PersonDBDAO>();
+
+// Add Automapper
+builder.Services.AddAutoMapper(typeof(Program));
 
 
 var app = builder.Build();

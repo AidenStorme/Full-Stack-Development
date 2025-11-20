@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/PartialView9.styles.css" asp-append-version="true" />
+    @RenderSection("Styles", required: false) <!-- als je een blokje "styles" tegenkomt plaats je dat hier -->
 </head>
 <body>
     @await Html.PartialAsync("_Header") <!-- Hier maak je de verwijzing naar je partial view die je hebt gemaakt nml _Header -->
