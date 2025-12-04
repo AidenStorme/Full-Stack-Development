@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Beer9.Domain/Beer9.Domain.csproj" />
+  <Project Path="Beer9.Repositories/Beer9.Repositories.csproj" />
+  <Project Path="Beer9.Services/Beer9.Services.csproj" />
+  <Project Path="Beer9/Beer9.csproj" />
+</Solution>
