@@ -1,4 +1,5 @@
 using Beer9.Domain.Data;
+using Beer9.Domain.Entities;
 using Beer9.Repositories;
 using Beer9.Repositories.Interfaces;
 using Beer9.Services;
@@ -20,6 +21,9 @@ builder.Services.AddDbContext<BeerDbContext>(options =>
 
 builder.Services.AddScoped<IBeerService, BeerService>();
 builder.Services.AddScoped<IBeerDAO, BeerDAO>();
+
+builder.Services.AddScoped<IService<Brewery>, BreweryService>();
+builder.Services.AddScoped<IDAO<Brewery>, BreweryDAO>();
 
 
 var app = builder.Build();

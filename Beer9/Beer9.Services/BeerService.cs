@@ -17,9 +17,40 @@ namespace Beer9.Services
         {
             _beerDAO = beerDAO;
         }
-        public async Task<IEnumerable<Beer>> GetAllBeersAsync()
+
+        public Task AddAsync(Beer entity)
         {
-            return await _beerDAO.GetBeersAsync();
+            throw new NotImplementedException();
+        }
+
+        public Task DeleteAsync(Beer entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Beer?> FindByIdAsync(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<Beer>?> GetAllAsync()
+        {
+            return await _beerDAO.GetAllAsync();
+        }
+
+        public async Task<IEnumerable<Beer>> GetAllBeersAlcoholAsync(int value)
+        {
+            return await _beerDAO.GetBeersByAlcohol(value);
+        }
+
+        public async Task<IEnumerable<Beer>> GetBeersByBrewery(int brouwerId)
+        {
+            return await _beerDAO.GetBeersByBrewery(brouwerId);
+        }
+
+        public Task UpdateAsync(Beer entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

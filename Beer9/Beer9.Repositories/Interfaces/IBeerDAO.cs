@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace Beer9.Repositories.Interfaces
 {
-    public interface IBeerDAO
+    public interface IBeerDAO : IDAO<Beer>
     {
-        Task<IEnumerable<Beer>> GetBeersAsync();
+        Task<IEnumerable<Beer>> GetBeersByAlcohol(decimal percentage);
+        Task<IEnumerable<Beer>> GetBeersByBrewery(int brouwerId);
     }
 }

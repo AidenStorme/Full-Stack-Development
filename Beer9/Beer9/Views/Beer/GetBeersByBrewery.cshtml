@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Beer9.ViewModels.BreweryBeersVM>
+
+@{
+    ViewData["Title"] = "GetBeersByBrewery";
+}
+
+<h1>GetBeersByBreweries</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="GetBeersbyBrewery">
+
+            <div class="form-group">
+                <label for="brouwerId" class="control-label"></label>
+                <select name="brouwerId" id="brouwerId"
+                        asp-items="@ViewBag.lstBrouwer">
+                    <option>Please select</option>
+                </select>
+
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Search" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@if (Model != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.BreweryNumber)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BreweryNumber)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}

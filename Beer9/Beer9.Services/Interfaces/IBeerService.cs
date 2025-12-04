@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace Beer9.Services.Interfaces
 {
-    public interface IBeerService
+    public interface IBeerService : IService<Beer>
     {
-        Task<IEnumerable<Beer>> GetAllBeersAsync();
+        Task<IEnumerable<Beer>> GetAllBeersAlcoholAsync(int value);
+        Task<IEnumerable<Beer>> GetBeersByBrewery(int brouwerId);
     }
 }
