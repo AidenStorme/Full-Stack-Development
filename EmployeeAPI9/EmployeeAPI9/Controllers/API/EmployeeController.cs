@@ -4,6 +4,7 @@ using EmployeeAPI9.Services.Interfaces;
 using EmployeeAPI9.Domain.EntitiesDB;
 using EmployeeAPI9.Services.Interfaces;
 using EmployeeAPI9.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -28,7 +29,7 @@ namespace EmployeeAPI9.Controllers.API
         /// </summary>
         /// <returns>The list of Employees.</returns>
         // GET: api/Employee
-        [HttpGet]
+        [HttpGet, Authorize]
 
         public async Task<ActionResult<EmployeeVM>> Get()
         {
