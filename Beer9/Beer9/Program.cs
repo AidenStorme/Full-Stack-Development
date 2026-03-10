@@ -8,22 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
-
-// Add Automapper
-builder.Services.AddAutoMapper(typeof(Program));
-
-//SQL Server
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-builder.Services.AddDbContext<BeerDbContext>(options =>
-    options.UseSqlServer(connectionString));
-
-builder.Services.AddScoped<IBeerService, BeerService>();
-builder.Services.AddScoped<IBeerDAO, BeerDAO>();
-
-builder.Services.AddScoped<IService<Brewery>, BreweryService>();
-builder.Services.AddScoped<IDAO<Brewery>, BreweryDAO>();
+ 
 
 
 var app = builder.Build();
