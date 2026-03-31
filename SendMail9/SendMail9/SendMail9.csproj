@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>aspnet-SendMail9-4c17b184-1e5d-41bc-80d8-40f722ef0a10</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="9.0.9"/>
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.9"/>
+        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="9.0.9"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.9"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.9"/>
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.12" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\SendMail9.Domain\SendMail9.Domain.csproj" />
+        <ProjectReference Include="..\SendMail9.Util\SendMail9.Util.csproj" />
+        <ProjectReference Include="..\SendMail9.Services\SendMail9.Services.csproj" />
+    </ItemGroup>
+
+</Project>

@@ -90,6 +90,23 @@ builder.Services.AddScoped<IDao<Employee>, EmployeeDao>();
         };
     });
 
+    // CORS
+    var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+    builder.Services.AddCors(options =>
+    {
+        options.AddPolicy(MyAllowSpecificOrigins,
+            policy =>
+            {
+                policy.AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+                //  policy.WithOrigins("http://localhost:63342",
+                //  "https://www.vives.be")
+                //.WithMethods("POST", "DELETE", "GET")
+                // .AllowAnyHeader();
+            });
+    });
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -118,6 +135,9 @@ app.UseSwaggerUI(option =>
     option.SwaggerEndpoint(swaggerOptions.UiEndpoint, swaggerOptions.Description);
 });
 // Note: Swagger JSON and UI are already configured above.
+
+// CORS
+app.UseCors(MyAllowSpecificOrigins);
 
 app.UseHttpsRedirection();
 app.UseRouting();

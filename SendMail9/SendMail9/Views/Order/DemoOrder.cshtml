@@ -1,0 +1,38 @@
+@model SendMail9.ViewModels.OrderInputVM
+@{
+    ViewData["Title"] = "Demo Order - Email Versturen";
+}
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h2 class="mb-4">Demo Order - Test Email Functionaliteit</h2>
+
+        @if (ViewBag.Message != null)
+        {
+            <div class="alert alert-success" role="alert">
+                <strong>Success!</strong> @ViewBag.Message
+            </div>
+        }
+
+        <form asp-action="DemoOrder" method="post">
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label">Naam</label>
+                <input asp-for="Name" class="form-control" placeholder="Vul uw naam in" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label">Email</label>
+                <input asp-for="Email" class="form-control" type="email" placeholder="voorbeeld@email.com" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Verstuur Orderbevestiging</button>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Annuleren</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

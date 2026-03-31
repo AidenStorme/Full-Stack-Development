@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendMail9", "SendMail9\SendMail9.csproj", "{7B3A20F5-B11F-4EA8-AE81-2AE2E78567D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendMail9.Util", "SendMail9.Util\SendMail9.Util.csproj", "{28E6A2AF-64C4-4952-9453-C8F959EC23B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendMail9.Services", "SendMail9.Services\SendMail9.Services.csproj", "{DC724677-3BFB-4EBF-B2BB-5E528EF3024B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendMail9.Domain", "SendMail9.Domain\SendMail9.Domain.csproj", "{4E869424-260D-471D-8BD2-EF27299B0E51}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7B3A20F5-B11F-4EA8-AE81-2AE2E78567D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B3A20F5-B11F-4EA8-AE81-2AE2E78567D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B3A20F5-B11F-4EA8-AE81-2AE2E78567D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B3A20F5-B11F-4EA8-AE81-2AE2E78567D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28E6A2AF-64C4-4952-9453-C8F959EC23B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28E6A2AF-64C4-4952-9453-C8F959EC23B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28E6A2AF-64C4-4952-9453-C8F959EC23B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28E6A2AF-64C4-4952-9453-C8F959EC23B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC724677-3BFB-4EBF-B2BB-5E528EF3024B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC724677-3BFB-4EBF-B2BB-5E528EF3024B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC724677-3BFB-4EBF-B2BB-5E528EF3024B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC724677-3BFB-4EBF-B2BB-5E528EF3024B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E869424-260D-471D-8BD2-EF27299B0E51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E869424-260D-471D-8BD2-EF27299B0E51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E869424-260D-471D-8BD2-EF27299B0E51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E869424-260D-471D-8BD2-EF27299B0E51}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
